@@ -5,7 +5,7 @@ import InterviewCalendar from "../InterviewCalendar/InterviewCalendar";
 import DaySchedule from "../DaySchedule/DaySchedule";
 import "./Panel.css";
 
-const interviews : Interview[] = [{
+const startingInterviews : Interview[] = [{
     id: 1,
     company: "Google",
     date: new Date(2022, 4, 20),
@@ -25,6 +25,8 @@ const interviews : Interview[] = [{
 const Panel = () : JSX.Element => {
     const [selectedDate, setSelectedDate] = useState<Date>(new Date());
 
+    const [interviews, setInterviews] = useState<Interview[]>(startingInterviews);
+
     return (
         <div id="left-panel">
             <SimpleGrid cols={1}>
@@ -34,6 +36,7 @@ const Panel = () : JSX.Element => {
                 />
                 <DaySchedule
                     interviews={interviews}
+                    setInterviews={setInterviews}
                     selectedDate={selectedDate}
                 />
             </SimpleGrid>
