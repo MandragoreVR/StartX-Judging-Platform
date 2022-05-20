@@ -8,7 +8,7 @@ interface DayScheduleProps {
 
 const DaySchedule = ({ interviews, selectedDate }: DayScheduleProps) : JSX.Element => {
     const interviewsToDisplay = interviews.filter(interview => {
-        const day = interview.date.getDay() === selectedDate.getDay();
+        const day = interview.date.getDate() === selectedDate.getDate();
         const month = interview.date.getMonth() === selectedDate.getMonth();
         const year = interview.date.getFullYear() === selectedDate.getFullYear();
         return day && month && year
@@ -30,16 +30,14 @@ const DaySchedule = ({ interviews, selectedDate }: DayScheduleProps) : JSX.Eleme
                     Scheduled interviews
                 </Title>
                 <ul>
-                    {interviewsToDisplay.map((interview : Interview) : JSX.Element => {
-                        return (
-                            <li>
-                                <Group spacing={5}>
-                                    <Text><b>{interview.company}</b> at </Text>
-                                    <Text>{interview.date.toDateString()}</Text>
-                                </Group>
-                            </li>
-                        )
-                    })}
+                    {interviewsToDisplay.map((interview : Interview) => (
+                        <li key={interview.id}>
+                            <Group spacing={5}>
+                                <Text><b>{interview.company}</b> at </Text>
+                                <Text>{interview.date.toDateString()}</Text>
+                            </Group>
+                        </li>
+                    ))}
                 </ul>
 
             </Box>

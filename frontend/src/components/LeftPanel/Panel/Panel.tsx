@@ -1,5 +1,5 @@
 import { SimpleGrid } from "@mantine/core";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Interview } from "../../../data/types";
 import InterviewCalendar from "../InterviewCalendar/InterviewCalendar";
 import DaySchedule from "../DaySchedule/DaySchedule";
@@ -20,7 +20,7 @@ const Panel = () : JSX.Element => {
 
     return (
         <div id="left-panel">
-            <SimpleGrid cols={1} style={{ width: "100%" }}>
+            <SimpleGrid cols={1}>
                 <InterviewCalendar
                     selectedDate={selectedDate}
                     setSelectedDate={setSelectedDate}

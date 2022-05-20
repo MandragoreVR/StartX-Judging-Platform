@@ -1,12 +1,16 @@
 import './App.css';
 import Header from './components/Header/Header';
-import Panel from './components/LeftPanel/Panel/Panel';
+import { LeftPanel, RightPanel } from './components';
+import { Group } from '@mantine/core';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Panel />
+      <Group spacing={0}>
+        <LeftPanel />
+        <RightPanel />
+      </Group>
     </div>
   );
 }
