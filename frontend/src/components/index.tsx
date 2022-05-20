@@ -1,1 +1,1 @@
-export { default as InterviewCalendar } from "./CalendarComponents/Calendar/Calendar";
+export { default as InterviewCalendar } from "./LeftPanel/Calendar/Calendar";
