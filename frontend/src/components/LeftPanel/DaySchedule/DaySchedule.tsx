@@ -1,7 +1,18 @@
 import { Box, Group, Text, Title } from "@mantine/core";
 import { Interview } from "../../../data/types";
 
-const DaySchedule = ({ interviews }: { interviews: Interview[] }) : JSX.Element => {
+interface DayScheduleProps {
+    interviews: Interview[];
+    selectedDate: Date;
+}
+
+const DaySchedule = ({ interviews, selectedDate }: DayScheduleProps) : JSX.Element => {
+    const interviewsToDisplay = interviews.filter(interview => {
+        const day = interview.date.getDay() === selectedDate.getDay();
+        const month = interview.date.getMonth() === selectedDate.getMonth();
+        const year = interview.date.getFullYear() === selectedDate.getFullYear();
+        return day && month && year
+    });
     return (
         <div style={{ width: "100%", justifyContent: "center", display: "flex" }}>
             <Box
@@ -19,7 +30,7 @@ const DaySchedule = ({ interviews }: { interviews: Interview[] }) : JSX.Element 
                     Scheduled interviews
                 </Title>
                 <ul>
-                    {interviews.map((interview : Interview) : JSX.Element => {
+                    {interviewsToDisplay.map((interview : Interview) : JSX.Element => {
                         return (
                             <li>
                                 <Group spacing={5}>

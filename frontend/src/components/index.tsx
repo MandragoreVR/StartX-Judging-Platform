@@ -1,1 +1,1 @@
-export { default as InterviewCalendar } from "./LeftPanel/Calendar/Calendar";
+export { default as InterviewCalendar } from "./LeftPanel/InterviewCalendar/InterviewCalendar";
