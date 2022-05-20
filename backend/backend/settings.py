@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-mn4(fr4*0!3so!(u7kyas@d7an_p%#x&6z7=g&2ltae%95^3b2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -78,10 +78,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'startx-reviews',
-        # 'USER': 'startx',
-        # 'PASSWORD': 'startx',
-        # 'HOST': '127.0.0.1',
-        'PORT': 3306,
+        # 'PORT': 3306,
     }
 }
 

@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render
-from models import Interview, Review
-from forms import InterviewForm, ReviewForm
+from .models import Interview, Review
+from .forms import InterviewForm, ReviewForm
 from time import time
 import datetime
 
@@ -31,6 +31,9 @@ def create_interview(request):
         form = InterviewForm(request.POST)
         if form.is_valid():
             form.save()
+            return render(request, "index.html", {"form": form})
+    else:
+        form = InterviewForm()
     return render(request, "index.html", {"form": form})
 
 def delete_interview(request, interview_id):
