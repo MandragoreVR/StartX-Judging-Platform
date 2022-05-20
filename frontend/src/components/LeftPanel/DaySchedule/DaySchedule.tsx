@@ -2,6 +2,7 @@ import { Box, Group, Text, ThemeIcon, Title } from "@mantine/core";
 import { FileArrowRight } from "tabler-icons-react";
 import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
+import "./DaySchedule.css";
 
 interface DayScheduleProps {
     interviews: Interview[];
@@ -18,38 +19,45 @@ const DaySchedule = ({ interviews, selectedDate }: DayScheduleProps) : JSX.Eleme
     });
 
     return (
-        <div style={{ width: "100%", justifyContent: "center", display: "flex" }}>
+        <div id="day-schedule">
             <Box
                 sx={(theme) => ({
-                backgroundColor: theme.colors.gray[1],
-                borderRadius: theme.radius.md,
-                width: "70%",
-                minWidth: "20em",
-                textAlign: "left",
-                paddingLeft: "1em",
-                paddingTop: "0.5em"
+                    backgroundColor: theme.colors.gray[1],
+                    borderRadius: theme.radius.md,
+                    width: "70%",
+                    minWidth: "20em",
+                    textAlign: "left",
+                    paddingLeft: "1em",
+                    paddingTop: "0.5em",
+                    height: "25vh"
                 })}
             >
                 <Title order={2}>
                     Scheduled interviews
                 </Title>
-                <ul>
-                    {interviewsToDisplay.map((interview : Interview) => (
-                        <li key={interview.id}>
-                            <Group spacing={5}>
-                                <Text><b>{interview.company}</b> at </Text>
-                                <Text>{interview.date.toDateString()}</Text>
-                                <ThemeIcon>
-                                    <FileArrowRight
-                                        onClick={() => setSelectedInterview(interview)}
-                                        cursor="pointer"
-                                    />
-                                </ThemeIcon>
-                            </Group>
-                        </li>
-                    ))}
-                </ul>
-
+                {interviewsToDisplay.length === 0
+                ? (
+                    <div>
+                        No interview scheduled today.
+                    </div>
+                ) : (
+                    <ul>
+                        {interviewsToDisplay.map((interview : Interview) => (
+                            <li key={interview.id}>
+                                <Group spacing={5}>
+                                    <Text><b>{interview.company}</b> at </Text>
+                                    <Text>{interview.date.toDateString()}</Text>
+                                    <ThemeIcon>
+                                        <FileArrowRight
+                                            onClick={() => setSelectedInterview(interview)}
+                                            cursor="pointer"
+                                        />
+                                    </ThemeIcon>
+                                </Group>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </Box>
         </div>
     )
