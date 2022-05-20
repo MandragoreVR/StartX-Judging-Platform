@@ -20,7 +20,7 @@ interface GradeDisplayProps {
 const GradeDisplay = ({ score, criteria } : GradeDisplayProps) : JSX.Element => {
     return (
         <Card className="grade-display-card">
-            <SimpleGrid cols={1} spacing={"xs"}>
+            <SimpleGrid cols={1} spacing={0}>
                 <RingProgress
                     className="grade-displayer"
                     roundCaps
@@ -36,9 +36,9 @@ const GradeDisplay = ({ score, criteria } : GradeDisplayProps) : JSX.Element => 
                     label={score
                         ? (
                             <div style={{ color: getColor(score) }}>
-                                {score}/5
+                                <b>{score}/5</b>
                             </div>
-                        ) : (<div>No <br/> data</div>)
+                        ) : (<div>No data</div>)
                     }
                 />
                 <div>

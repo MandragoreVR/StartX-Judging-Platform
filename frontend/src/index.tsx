@@ -11,6 +11,12 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MantineProvider
+      theme={{
+        fontFamily: 'Quicksand',
+        headings: {
+          fontFamily: 'Quicksand'
+        }
+      }}
       withGlobalStyles
       withNormalizeCSS
     >
