@@ -1,0 +1,7 @@
+# Development dependencies
+node_modules
+backend/startx-reviews
+
+# Environment dependencies
+env
+.env
