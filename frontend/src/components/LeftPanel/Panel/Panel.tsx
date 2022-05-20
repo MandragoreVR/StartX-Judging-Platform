@@ -8,11 +8,18 @@ import "./Panel.css";
 const interviews : Interview[] = [{
     id: 1,
     company: "Google",
-    date: new Date(2022, 4, 20)
+    date: new Date(2022, 4, 20),
+    pcGlobalScore: 4.5,
+    tdGlobalScore: 3.2,
+    exGlobalScore: 1.1,
+    idGlobalScore: 2.8,
 }, {
     id: 2,
     company: "Amazon",
-    date: new Date(2022, 4, 22)
+    date: new Date(2022, 4, 22),
+    pcGlobalScore: 5,
+    tdGlobalScore: 3,
+    exGlobalScore: 0,
 }]
 
 const Panel = () : JSX.Element => {

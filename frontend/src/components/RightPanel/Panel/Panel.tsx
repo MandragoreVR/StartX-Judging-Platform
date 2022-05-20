@@ -4,16 +4,6 @@ import "./Panel.css";
 
 const Panel = () : JSX.Element => {
 
-    const interview = {
-        id: 3,
-        company: "Meta",
-        date: new Date(2022, 4, 21),
-        pcGlobalScore: 4.3,
-        tdGlobalScore: 2.1,
-        exGlobalScore: 0,
-        idGlobalScore: -1
-    }
-
     return (
         <div id="right-panel">
             <Box
@@ -29,7 +19,7 @@ const Panel = () : JSX.Element => {
                     paddingTop: "0.5em"
                     })}
             >
-               <InterviewProfile interview={interview} />
+               <InterviewProfile />
             </Box>
         </div>
     )
