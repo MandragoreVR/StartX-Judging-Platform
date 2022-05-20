@@ -14,7 +14,6 @@ const SpecificGradeDisplay = ({ score, criteria, review } : SpecificGradeDisplay
             <Group position="left" spacing={"xs"}>
                 <b>{criteria} : </b>
                 <RingProgress
-                    roundCaps
                     thickness={4}
                     size={20}
                     sections={[{
