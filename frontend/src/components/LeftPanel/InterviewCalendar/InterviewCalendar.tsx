@@ -14,6 +14,7 @@ const InterviewCalendar = ({ selectedDate, setSelectedDate } : CalendarProps) : 
       <Calendar
         onChange={setSelectedDate}
         value={selectedDate}
+        locale="en-EN"
       />
     </div>
   );
