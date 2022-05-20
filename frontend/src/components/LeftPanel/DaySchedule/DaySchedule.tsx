@@ -1,6 +1,7 @@
 import { Box, Group, Title } from "@mantine/core";
 import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
+import { areDateEqual } from "../../../utils";
 import AddInterview from "./AddInterview";
 import "./DaySchedule.css";
 import ScheduleLine from "./ScheduleLine";
@@ -12,12 +13,7 @@ interface DayScheduleProps {
 }
 
 const DaySchedule = ({ interviews, setInterviews, selectedDate }: DayScheduleProps) : JSX.Element => {
-    const interviewsToDisplay = interviews.filter(interview => {
-        const day = interview.date.getDate() === selectedDate.getDate();
-        const month = interview.date.getMonth() === selectedDate.getMonth();
-        const year = interview.date.getFullYear() === selectedDate.getFullYear();
-        return day && month && year
-    });
+    const interviewsToDisplay = interviews.filter(interview => areDateEqual(interview.date, selectedDate));
 
     const { selectedInterview, setSelectedInterview } = useSelectedInterview();
 

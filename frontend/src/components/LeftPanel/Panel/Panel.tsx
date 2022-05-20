@@ -33,6 +33,7 @@ const Panel = () : JSX.Element => {
                 <InterviewCalendar
                     selectedDate={selectedDate}
                     setSelectedDate={setSelectedDate}
+                    interviews={interviews}
                 />
                 <DaySchedule
                     interviews={interviews}
