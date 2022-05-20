@@ -3,7 +3,7 @@ import { Interview } from "../data/types";
 
 const SelectedInterviewContext = createContext<{
     selectedInterview: Interview | null;
-    setSelectedInterview: (arg0: Interview) => void;
+    setSelectedInterview: (arg0: Interview | null) => void;
 }>({
     selectedInterview: null,
     setSelectedInterview: () => {}

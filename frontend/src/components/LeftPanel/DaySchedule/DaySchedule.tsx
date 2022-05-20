@@ -1,5 +1,7 @@
-import { Box, Title } from "@mantine/core";
+import { Box, Group, Title } from "@mantine/core";
+import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
+import AddInterview from "./AddInterview";
 import "./DaySchedule.css";
 import ScheduleLine from "./ScheduleLine";
 
@@ -17,6 +19,8 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
         return day && month && year
     });
 
+    const { selectedInterview, setSelectedInterview } = useSelectedInterview();
+
     const addInterview = (interview : Interview) : void => {
         const newInterviews = [...interviews];
         newInterviews.push(interview);
@@ -28,6 +32,9 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
             interview => interview.id !== interviewId
         );
         setInterviews(newInterviews);
+        if (selectedInterview && selectedInterview.id === interviewId) {
+            setSelectedInterview(null);
+        }
     }
 
     return (
@@ -47,9 +54,13 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
                     height: "25vh"
                 })}
             >
-                <Title order={2}>
-                    Scheduled interviews
-                </Title>
+                <Group spacing={"md"}>
+                    <Title order={2} style={{ paddingBottom: "0.3em" }}>
+                        Scheduled interviews
+                    </Title>
+                    <AddInterview addInterview={addInterview}/>
+                </Group>
+
                 {interviewsToDisplay.length === 0
                 ? (
                     <div>
