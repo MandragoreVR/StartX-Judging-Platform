@@ -1,4 +1,4 @@
-.grade-display-card {
+.overall-grade-display-card {
     text-align: center;
     width: 8em;
     height: 9.5em;
@@ -10,7 +10,7 @@
     justify-content: center;
 }
 
-.grade-displayer {
+.overall-grade-displayer {
     display: block;
     margin: auto;
     display: inline-block;

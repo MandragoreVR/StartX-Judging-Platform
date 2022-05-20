@@ -9,8 +9,10 @@ export interface Interview {
 }
 
 export interface Review {
+    date?: Date;
     interviewId: number;
     judgeName: string;
+    overallDebrief: string;
     pcScore: number;
     pcDebrief: string;
     tdScore: number;

@@ -1,5 +1,5 @@
 import { Box } from "@mantine/core";
-import InterviewProfile from "../InterviewDetails";
+import InterviewDetails from "../InterviewDetails";
 import "./Panel.css";
 
 const Panel = () : JSX.Element => {
@@ -16,10 +16,12 @@ const Panel = () : JSX.Element => {
                     textAlign: "left",
                     paddingLeft: "1em",
                     paddingRight: "1em",
-                    paddingTop: "0.5em"
-                    })}
+                    paddingTop: "0.5em",
+                    paddingBottom: "0.5em",
+                    overflow: "auto",
+                })}
             >
-               <InterviewProfile />
+               <InterviewDetails />
             </Box>
         </div>
     )

@@ -1,8 +1,9 @@
 import { Group, Title } from "@mantine/core";
 import { useSelectedInterview } from "../../contexts";
-import GradeDisplay from "./GradeDisplay/GradeDisplay";
+import GradeDisplay from "./GradeDisplay/OverallGradeDisplay";
+import Reviews from "./Reviews/Reviews";
 
-const InterviewProfile = () : JSX.Element => {
+const InterviewDetails = () : JSX.Element => {
     const { selectedInterview } = useSelectedInterview();
     return (
         <div>
@@ -32,14 +33,15 @@ const InterviewProfile = () : JSX.Element => {
                             score={selectedInterview.idGlobalScore}
                             criteria="Idea"
                         />
-                        <Title order={4}>
+                        <Title order={4} style={{ marginBottom: "2em" }}>
                             Global scores
                         </Title>
                     </Group>
+                    <Reviews />
                 </>) : <Title order={2}>No interview selected</Title>
             }
         </div>
     )
 }
 
-export default InterviewProfile;
+export default InterviewDetails;
