@@ -73,6 +73,8 @@ const Reviews = () : JSX.Element => {
                     <Button
                         color="green"
                         onClick={() => setOpenForm(true)}
+                        style={selectedInterview && selectedInterview?.date > new Date()
+                            ? { display: 'none'} : {}}
                     >
                         Add your review
                     </Button>
@@ -91,6 +93,8 @@ const Reviews = () : JSX.Element => {
                         <Button
                             color="green"
                             onClick={() => setOpenForm(true)}
+                            style={selectedInterview && selectedInterview?.date > new Date()
+                                ? { display: 'none'} : {}}
                         >
                             Add your review
                         </Button>
