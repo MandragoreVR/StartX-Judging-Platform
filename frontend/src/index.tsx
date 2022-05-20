@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MantineProvider } from '@mantine/core';
+import { SelectedInterviewProvider } from './contexts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -20,7 +21,9 @@ root.render(
       withGlobalStyles
       withNormalizeCSS
     >
-      <App />
+        <SelectedInterviewProvider>
+          <App />
+        </SelectedInterviewProvider>
     </MantineProvider>
   </React.StrictMode>
 );
