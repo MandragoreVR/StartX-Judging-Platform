@@ -1,20 +1,19 @@
 import { Button, Group, Popover, Space, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { DatePicker } from "@mantine/dates";
-import { Interview } from "../../../data/types";
 import { useState } from "react";
 import { Plus } from "tabler-icons-react";
+import { dateToString } from "../../../utils";
 
 interface AddInterviewProps {
-    addInterview: (agr0: Interview) => void;
+    addInterview: (agr0: {company: string, date: string}) => void;
 }
 
 const AddInterview = ({ addInterview } : AddInterviewProps) : JSX.Element => {
     const [ openForm, setOpenForm ] = useState<boolean>(false);
 
-    const form = useForm<Interview>({
+    const form = useForm<{ company: string; date: Date }>({
         initialValues: {
-            id: 0,
             company: '',
             date: new Date()
         },
@@ -52,9 +51,8 @@ const AddInterview = ({ addInterview } : AddInterviewProps) : JSX.Element => {
                 <form onSubmit={form.onSubmit((values) => {
                     form.reset();
                     addInterview({
-                        id: values.id,
                         company: values.company,
-                        date: values.date
+                        date: dateToString(values.date)
                     })
                     setOpenForm(false);
                 })}>

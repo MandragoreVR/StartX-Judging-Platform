@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FileArrowRight, Trash } from "tabler-icons-react";
 import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
+import { displayDate } from "../../../utils";
 
 interface ScheduleLineProps {
     interview: Interview;
@@ -43,7 +44,7 @@ const ScheduleLine = ({ interview, deleteInterview } : ScheduleLineProps) : JSX.
                         <b>{interview.company}</b> at
                     </Text>
                     <Text style={{ fontSize: "1.2em"}}>
-                        {interview.date.toDateString()}
+                        {displayDate(interview.date, true)}
                     </Text>
                 </Group>
 

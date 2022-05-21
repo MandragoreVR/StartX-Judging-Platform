@@ -2,6 +2,7 @@ import { Accordion, Button, Title, Space, Group } from "@mantine/core";
 import { useState } from "react";
 import { useSelectedInterview } from "../../../contexts";
 import { Review } from "../../../data/types";
+import { stringToDate } from "../../../utils";
 import SpecificGradeDisplay from "../GradeDisplay/SpecificGradeDisplayer";
 import AddReview from "./AddReview";
 import useStyles from "./ReviewsStyle";
@@ -35,7 +36,7 @@ const Reviews = () : JSX.Element => {
                     <Button
                         color="green"
                         onClick={() => setOpenForm(true)}
-                        style={selectedInterview && selectedInterview?.date > new Date()
+                        style={selectedInterview && stringToDate(selectedInterview?.date) > new Date()
                             ? { display: 'none'} : {}}
                     >
                         Add your review
@@ -55,7 +56,7 @@ const Reviews = () : JSX.Element => {
                         <Button
                             color="green"
                             onClick={() => setOpenForm(true)}
-                            style={selectedInterview && selectedInterview?.date > new Date()
+                            style={selectedInterview && stringToDate(selectedInterview?.date) > new Date()
                                 ? { display: 'none'} : {}}
                         >
                             Add your review

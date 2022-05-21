@@ -1,7 +1,7 @@
 export interface Interview {
     id: number;
     company: string;
-    date: Date;
+    date: string;
     pcGlobalScore?: number;
     tdGlobalScore?: number;
     exGlobalScore?: number;
@@ -9,7 +9,7 @@ export interface Interview {
 }
 
 export interface Review {
-    date?: Date;
+    publicationDate?: string;
     interviewId: number;
     judgeName: string;
     overallDebrief: string;

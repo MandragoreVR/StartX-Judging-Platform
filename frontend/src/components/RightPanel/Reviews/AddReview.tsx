@@ -3,6 +3,7 @@ import { useForm } from "@mantine/form";
 import { Review } from "../../../data/types";
 import { useSelectedInterview } from "../../../contexts";
 import CriteriaGradingComponent from "./CriteriaGradingComponent";
+import { dateToString } from "../../../utils";
 
 interface AddReviewProps {
     addReview: (agr0: Review) => void;
@@ -26,7 +27,7 @@ const AddReview = ({ addReview, openForm, setOpenForm } : AddReviewProps) : JSX.
             idScore: 2.5,
             idDebrief: '',
             overallDebrief: '',
-            date: new Date()
+            publicationDate: dateToString(new Date())
         },
         validate: {
             judgeName: (value) => value.length <= 100 ? null : "Name is too long",
