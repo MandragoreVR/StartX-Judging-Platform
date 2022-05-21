@@ -1,7 +1,6 @@
 import Calendar from 'react-calendar';
 import "./InterviewCalendar.css";
 import 'react-calendar/dist/Calendar.css';
-import { AlertCircle } from 'tabler-icons-react';
 import { Interview } from '../../../data/types';
 import { areDateEqual } from '../../../utils';
 import { Indicator } from '@mantine/core';
