@@ -1,6 +1,6 @@
 import { Accordion, Button, Title, Space, Group } from "@mantine/core";
-import { useEffect, useState } from "react";
-import { fetchReviews } from "../../../apiCommunication";
+import { useState } from "react";
+// import { fetchReviews } from "../../../apiCommunication";
 import { useSelectedInterview } from "../../../contexts";
 import { Review } from "../../../data/types";
 import { stringToDate } from "../../../utils";
@@ -58,6 +58,9 @@ const Reviews = () : JSX.Element => {
         setReviews(newReview);
     }
 
+    const reviewsToDisplay = reviews.filter((review) => (
+        selectedInterview && review.interview_id === selectedInterview.id
+    ));
     // Fetching of the reviews
     // useEffect(() => {
     //     if (selectedInterview) {
@@ -70,7 +73,7 @@ const Reviews = () : JSX.Element => {
 
     return (
         <div>
-           {reviews.length === 0
+           {reviewsToDisplay.length === 0
            ? (
                <div>
                     <Title order={3}>
@@ -115,7 +118,7 @@ const Reviews = () : JSX.Element => {
                     />
                     <Accordion classNames={classes}>
                         {
-                            reviews.map((review : Review) => (
+                            reviewsToDisplay.map((review : Review) => (
                                 <Accordion.Item
                                     label={
                                         <div>

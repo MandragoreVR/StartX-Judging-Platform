@@ -19,7 +19,6 @@ const fetchInterviews = async ({ interviewId, setInterviews } : fetchInterviewsP
         await axios.get(INTERVIEWS_ROUTE)
             .then((response) => {
                 if (response.status === 200) {
-                    console.log(response.data);
                     setInterviews(response.data);
                 } else {
                     console.log("An error occurred while trying to fetch interviews")

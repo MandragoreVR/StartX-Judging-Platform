@@ -4,6 +4,7 @@ import { areDateEqual, dateToString } from "../../../utils";
 import AddInterview from "./AddInterview";
 import "./DaySchedule.css";
 import ScheduleLine from "./ScheduleLine";
+import Shortcut from "./Shortcut";
 
 interface DayScheduleProps {
     interviews: Interview[];
@@ -36,6 +37,7 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
                         Scheduled interviews
                     </Title>
                     <AddInterview setInterviews={setInterviews}/>
+                    <Shortcut setInterviews={setInterviews}/>
                 </Group>
 
                 {interviewsToDisplay.length === 0

@@ -1,4 +1,4 @@
-import { SimpleGrid, Slider, TextInput, Title } from "@mantine/core";
+import { SimpleGrid, Slider, Textarea, Title } from "@mantine/core";
 
 interface CriteriaGradingProps {
     criteria: string;
@@ -22,8 +22,9 @@ const CriteriaGradingComponent = ({ criteria, smallForCriteria, form } : Criteri
                 {...form.getInputProps(`${smallForCriteria}_score`)}
             />
 
-            <TextInput
+            <Textarea
                 required
+                minRows={3}
                 label="Comment"
                 placeholder={`Add your comment about ${criteria} here`}
                 {...form.getInputProps(`${smallForCriteria}_debrief`)}

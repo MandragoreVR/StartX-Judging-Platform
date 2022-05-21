@@ -4,7 +4,7 @@ import { Review } from "../../../data/types";
 import { useSelectedInterview } from "../../../contexts";
 import CriteriaGradingComponent from "./CriteriaGradingComponent";
 import { dateToString } from "../../../utils";
-import { addReview } from "../../../apiCommunication";
+// import { addReview } from "../../../apiCommunication";
 
 interface AddReviewProps {
     openForm: boolean;
