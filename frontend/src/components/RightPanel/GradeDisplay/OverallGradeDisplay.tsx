@@ -23,7 +23,7 @@ const GradeDisplay = ({ score, criteria } : GradeDisplayProps) : JSX.Element => 
                         }]
                         : []
                     }
-                    label={score
+                    label={score && score !== -1
                         ? (
                             <div style={{ color: getColor(score) }}>
                                 <b>{score}/5</b>

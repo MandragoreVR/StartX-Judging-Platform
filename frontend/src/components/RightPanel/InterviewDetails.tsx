@@ -18,19 +18,19 @@ const InterviewDetails = () : JSX.Element => {
                         style={{ marginTop: "1em" }}
                     >
                         <GradeDisplay
-                            score={selectedInterview.pcGlobalScore}
+                            score={selectedInterview.pc_global_score}
                             criteria="Passion and Commitment"
                         />
                         <GradeDisplay
-                            score={selectedInterview.tdGlobalScore}
+                            score={selectedInterview.td_global_score}
                             criteria="Team Dynamics"
                         />
                         <GradeDisplay
-                            score={selectedInterview.exGlobalScore}
+                            score={selectedInterview.ex_global_score}
                             criteria="Ability to Execute"
                         />
                         <GradeDisplay
-                            score={selectedInterview.idGlobalScore}
+                            score={selectedInterview.id_global_score}
                             criteria="Idea"
                         />
                         <Title order={4} style={{ marginBottom: "2em" }}>

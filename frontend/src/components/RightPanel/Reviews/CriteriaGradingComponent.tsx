@@ -10,7 +10,7 @@ const CriteriaGradingComponent = ({ criteria, smallForCriteria, form } : Criteri
     return (
         <SimpleGrid cols={1}>
             <Title order={4}>
-                {criteria} : {form.values[`${smallForCriteria}Score`]}/5
+                {criteria} : {form.values[`${smallForCriteria}_score`]}/5
             </Title>
 
             <Slider
@@ -19,14 +19,14 @@ const CriteriaGradingComponent = ({ criteria, smallForCriteria, form } : Criteri
                 max={5}
                 precision={1}
                 step={0.1}
-                {...form.getInputProps(`${smallForCriteria}Score`)}
+                {...form.getInputProps(`${smallForCriteria}_score`)}
             />
 
             <TextInput
                 required
                 label="Comment"
                 placeholder={`Add your comment about ${criteria} here`}
-                {...form.getInputProps(`${smallForCriteria}Debrief`)}
+                {...form.getInputProps(`${smallForCriteria}_debrief`)}
 
             />
         </SimpleGrid>

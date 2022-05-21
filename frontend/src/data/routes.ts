@@ -4,6 +4,6 @@ export const INTERVIEWS_ROUTE = BACKEND_ROUTE + "interviews";
 
 export const ONE_INTERVIEW_ROUTE = BACKEND_ROUTE + "interview/";
 
-export const REVIEW_ROUTE = BACKEND_ROUTE + "review/";
+export const REVIEW_ROUTE = BACKEND_ROUTE + "review";
 
 export const REVIEW_SYNTHESIS_ROUTE = BACKEND_ROUTE + "review_synthesis/";
