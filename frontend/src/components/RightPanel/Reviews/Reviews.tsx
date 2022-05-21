@@ -21,7 +21,7 @@ const reviewComments : Review[] = [{
     id_score: 5,
     id_debrief: "The idea is brilliant!"
 }, {
-    interview_id: 1,
+    interview_id: 2,
     judge_name: "Bella Fojut",
     overall_debrief: "Good global result, but it could be better",
     pc_score: 2.3,
@@ -33,7 +33,7 @@ const reviewComments : Review[] = [{
     id_score: 4.1,
     id_debrief: "The idea is really good!"
 }, {
-    interview_id: 2,
+    interview_id: 3,
     judge_name: "Joseph Huang",
     overall_debrief: "Quite good, but the idea is not amazing",
     pc_score: 1,

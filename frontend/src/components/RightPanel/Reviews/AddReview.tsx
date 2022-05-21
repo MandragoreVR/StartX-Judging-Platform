@@ -18,16 +18,16 @@ const AddReview = ({ openForm, setOpenForm, addManualReview } : AddReviewProps) 
     const form = useForm<Review>({
         initialValues: {
             interview_id: selectedInterview ? selectedInterview.id : 0,
-            judge_name: 'John Doe',
-            pc_score: 1,
-            pc_debrief: 'Not good',
-            td_score: 3.5,
-            td_debrief: 'Quite good',
-            ex_score: 4,
-            ex_debrief: 'Very well',
-            id_score: 5,
-            id_debrief: 'Perfect',
-            overall_debrief: 'Good overall',
+            judge_name: '',
+            pc_score: 2.5,
+            pc_debrief: '',
+            td_score: 2.5,
+            td_debrief: '',
+            ex_score: 2.5,
+            ex_debrief: '',
+            id_score: 2.5,
+            id_debrief: '',
+            overall_debrief: '',
             publication_date: dateToString(new Date())
         },
         validate: {

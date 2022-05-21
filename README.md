@@ -2,6 +2,8 @@
 
 Here is the result of the assignment about a StartX common platform for judges.
 
+One can find a video presentation of the app [here](https://www.loom.com/share/a70dca40555f4ba983fdfcfd9f3891a4?sharedAppSource=personal_library).
+
 ## Installation
 - Clone the repository
 - Once in the repository, install Python requirements with `pip install -r backend/requirements.txt` (you might want to create a virtual environment before that)
