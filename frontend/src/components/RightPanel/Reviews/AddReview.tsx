@@ -3,38 +3,40 @@ import { useForm } from "@mantine/form";
 import { Review } from "../../../data/types";
 import { useSelectedInterview } from "../../../contexts";
 import CriteriaGradingComponent from "./CriteriaGradingComponent";
+import { dateToString } from "../../../utils";
+// import { addReview } from "../../../apiCommunication";
 
 interface AddReviewProps {
-    addReview: (agr0: Review) => void;
     openForm: boolean;
     setOpenForm: (arg0: boolean) => void;
+    addManualReview: (arg0: Review) => void;
 }
 
-const AddReview = ({ addReview, openForm, setOpenForm } : AddReviewProps) : JSX.Element => {
+const AddReview = ({ openForm, setOpenForm, addManualReview } : AddReviewProps) : JSX.Element => {
     const { selectedInterview } = useSelectedInterview();
 
     const form = useForm<Review>({
         initialValues: {
-            interviewId: selectedInterview ? selectedInterview.id : 0,
-            judgeName: '',
-            pcScore: 2.5,
-            pcDebrief: '',
-            tdScore: 2.5,
-            tdDebrief: '',
-            exScore: 2.5,
-            exDebrief: '',
-            idScore: 2.5,
-            idDebrief: '',
-            overallDebrief: '',
-            date: new Date()
+            interview_id: selectedInterview ? selectedInterview.id : 0,
+            judge_name: 'John Doe',
+            pc_score: 1,
+            pc_debrief: 'Not good',
+            td_score: 3.5,
+            td_debrief: 'Quite good',
+            ex_score: 4,
+            ex_debrief: 'Very well',
+            id_score: 5,
+            id_debrief: 'Perfect',
+            overall_debrief: 'Good overall',
+            publication_date: dateToString(new Date())
         },
         validate: {
-            judgeName: (value) => value.length <= 100 ? null : "Name is too long",
-            pcDebrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
-            tdDebrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
-            exDebrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
-            idDebrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
-            overallDebrief: (value) => value.length <= 500 ? null : "Overall comment must not exceed 500 characters",
+            judge_name: (value) => value.length <= 100 ? null : "Name is too long",
+            pc_debrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
+            td_debrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
+            ex_debrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
+            id_debrief: (value) => value.length <= 500 ? null : "Comment must not exceed 500 characters",
+            overall_debrief: (value) => value.length <= 500 ? null : "Overall comment must not exceed 500 characters",
         }
     })
     return (
@@ -42,7 +44,7 @@ const AddReview = ({ addReview, openForm, setOpenForm } : AddReviewProps) : JSX.
             <Collapse in={openForm}>
                 <form onSubmit={form.onSubmit((values) => {
                     form.reset();
-                    addReview({
+                    addManualReview({
                         ...form.values
                     })
                     setOpenForm(false);
@@ -52,7 +54,7 @@ const AddReview = ({ addReview, openForm, setOpenForm } : AddReviewProps) : JSX.
                         required
                         label="Judge name"
                         placeholder="John Doe"
-                        {...form.getInputProps('judgeName')}
+                        {...form.getInputProps('judge_name')}
                     />
 
                     <Space h="sm" />
@@ -94,7 +96,7 @@ const AddReview = ({ addReview, openForm, setOpenForm } : AddReviewProps) : JSX.
                         required
                         label="Overall comment"
                         placeholder="Add your comment here"
-                        {...form.getInputProps('overallDebrief')}
+                        {...form.getInputProps('overall_debrief')}
                     />
 
                     <Space h="sm" />

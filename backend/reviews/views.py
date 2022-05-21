@@ -65,9 +65,10 @@ def create_review(request):
         interview = Interview.objects.get(pk=interview_id)
     except Interview.DoesNotExist:
         return JsonResponse({'message': 'The interview does not exist'}, status=status.HTTP_404_NOT_FOUND)
-    print(request)
+    print(request.data)
+    print("ledataici")
     review_data = JSONParser().parse(request)
-    review_serializer = ReviewSerializer(data = review_data)
+    review_serializer = ReviewSerializer(json = review_data)
     if review_serializer.is_valid():
         review_serializer.save()
 
@@ -87,3 +88,10 @@ def create_review(request):
         interview.save()
         return JsonResponse(review_serializer.data, status=status.HTTP_201_CREATED)
     return JsonResponse(review_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def empty_database(_):
+    interviews = Interview.objects.all()
+    for interview in interviews:
+        interview.delete()
+    return JsonResponse({'message': 'All interview deleted'}, status=status.HTTP_200_OK)

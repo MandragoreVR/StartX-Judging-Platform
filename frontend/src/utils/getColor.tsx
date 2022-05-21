@@ -1,5 +1,5 @@
 const getColor = (score : number) : string => {
-    if (score < 0 || score > 5) return "black";
+    if (score < 0 || score > 5) return "gray";
 
     if (score === 0) return "#FF0D0D";
     else if (score < 1) return "#FF4E11";

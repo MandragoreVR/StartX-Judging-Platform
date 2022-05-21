@@ -1,10 +1,10 @@
 import { Box, Group, Title } from "@mantine/core";
-import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
-import { areDateEqual } from "../../../utils";
+import { areDateEqual, dateToString } from "../../../utils";
 import AddInterview from "./AddInterview";
 import "./DaySchedule.css";
 import ScheduleLine from "./ScheduleLine";
+import Shortcut from "./Shortcut";
 
 interface DayScheduleProps {
     interviews: Interview[];
@@ -13,25 +13,7 @@ interface DayScheduleProps {
 }
 
 const DaySchedule = ({ interviews, setInterviews, selectedDate }: DayScheduleProps) : JSX.Element => {
-    const interviewsToDisplay = interviews.filter(interview => areDateEqual(interview.date, selectedDate));
-
-    const { selectedInterview, setSelectedInterview } = useSelectedInterview();
-
-    const addInterview = (interview : Interview) : void => {
-        const newInterviews = [...interviews];
-        newInterviews.push(interview);
-        setInterviews(newInterviews);
-    }
-
-    const deleteInterview = (interviewId : number) : void => {
-        const newInterviews = interviews.filter(
-            interview => interview.id !== interviewId
-        );
-        setInterviews(newInterviews);
-        if (selectedInterview && selectedInterview.id === interviewId) {
-            setSelectedInterview(null);
-        }
-    }
+    const interviewsToDisplay = interviews.filter(interview => areDateEqual(interview.date, dateToString(selectedDate)));
 
     return (
         <div id="day-schedule">
@@ -54,7 +36,8 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
                     <Title order={2} style={{ paddingBottom: "0.3em" }}>
                         Scheduled interviews
                     </Title>
-                    <AddInterview addInterview={addInterview}/>
+                    <AddInterview setInterviews={setInterviews}/>
+                    <Shortcut setInterviews={setInterviews}/>
                 </Group>
 
                 {interviewsToDisplay.length === 0
@@ -68,7 +51,7 @@ const DaySchedule = ({ interviews, setInterviews, selectedDate }: DaySchedulePro
                             <li key={interview.id}>
                                 <ScheduleLine
                                     interview={interview}
-                                    deleteInterview={deleteInterview}
+                                    setInterviews={setInterviews}
                                 />
                             </li>
                         ))}

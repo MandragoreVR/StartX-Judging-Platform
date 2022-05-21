@@ -2,7 +2,7 @@ from django.db import models
 
 class Interview(models.Model):
     company = models.CharField(max_length=100)
-    date = models.CharField(max_length=10) # YYYY-MM-DD
+    date = models.CharField(max_length=16) # YYYY-MM-DD-HH:MM
     pc_global_score = models.FloatField(default=-1)
     td_global_score = models.FloatField(default=-1)
     ex_global_score = models.FloatField(default=-1)
