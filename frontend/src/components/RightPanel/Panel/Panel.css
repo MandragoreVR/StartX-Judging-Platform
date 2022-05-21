@@ -1,0 +1,7 @@
+#right-panel {
+    width: 60vw;
+    height: 75vh;
+    justify-content: center;
+    display: flex;
+    margin-top: 4vh;
+}

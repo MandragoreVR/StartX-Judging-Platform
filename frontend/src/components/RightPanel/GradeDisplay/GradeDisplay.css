@@ -1,0 +1,17 @@
+.overall-grade-display-card {
+    text-align: center;
+    width: 8em;
+    height: 9.5em;
+    padding-top: 5px;
+    border-radius: 2em;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overall-grade-displayer {
+    display: block;
+    margin: auto;
+    display: inline-block;
+}

@@ -1,0 +1,13 @@
+#header {
+    height: 15vh;
+    min-height: 7em;
+    width: 100%;
+    padding-left: 2em;
+    padding-top: 0.8em;
+    border-bottom: 2px solid gray;
+}
+
+#logo {
+    width: 13em;
+    padding-bottom: 1em;
+}
