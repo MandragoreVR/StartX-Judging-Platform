@@ -4,6 +4,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.get_all_interviews, name="main"),
-    path('create_interview', views.create_interview, name="create_interview"),
+    path('interview/<int:interview_id>', views.get_one_interview),
+    path('interviews', views.manage_interviews),
+    path('interviews/<int:interview_id>', views.delete_interview),
+    path('review/<int:interview_id>', views.get_reviews),
+    path('review', views.create_review)
+    # path('review_synthesis/<int:interview_id>', views.generate_synthesis),
 ]
