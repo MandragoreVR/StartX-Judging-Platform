@@ -1,7 +1,6 @@
 # Development dependencies
 node_modules
 backend/startx-reviews
-build
 .DS_Store
 
 # Environment dependencies
