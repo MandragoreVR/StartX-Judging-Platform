@@ -4,13 +4,14 @@ import { FileArrowRight, Trash } from "tabler-icons-react";
 import { useSelectedInterview } from "../../../contexts";
 import { Interview } from "../../../data/types";
 import { displayDate } from "../../../utils";
+import { deleteInterview, fetchInterviews } from "../../../apiCommunication";
 
 interface ScheduleLineProps {
     interview: Interview;
-    deleteInterview: (arg0: number) => void;
+    setInterviews: (arg0: Interview[]) => void;
 }
 
-const ScheduleLine = ({ interview, deleteInterview } : ScheduleLineProps) : JSX.Element => {
+const ScheduleLine = ({ interview, setInterviews } : ScheduleLineProps) : JSX.Element => {
     const { setSelectedInterview } = useSelectedInterview();
     const [ infoPopover, setInfoPopover ] = useState<boolean>(false);
     const [ deletePopover, setDeletePopover ] = useState<boolean>(false);
@@ -32,7 +33,13 @@ const ScheduleLine = ({ interview, deleteInterview } : ScheduleLineProps) : JSX.
                     </Button>
                     <Button
                         color="red"
-                        onClick={() => deleteInterview(interview.id)}
+                        onClick={async () => {
+                            setDeleteModal(false);
+                            await deleteInterview({
+                                interviewId: interview.id,
+                            })
+                            fetchInterviews({ setInterviews: setInterviews })
+                        }}
                     >
                         Yes
                     </Button>

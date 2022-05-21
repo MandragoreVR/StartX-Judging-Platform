@@ -4,12 +4,14 @@ import { DatePicker } from "@mantine/dates";
 import { useState } from "react";
 import { Plus } from "tabler-icons-react";
 import { dateToString } from "../../../utils";
+import { addInterview, fetchInterviews } from "../../../apiCommunication";
+import { Interview } from "../../../data";
 
 interface AddInterviewProps {
-    addInterview: (agr0: {company: string, date: string}) => void;
+    setInterviews: (arg0: Interview[]) => void;
 }
 
-const AddInterview = ({ addInterview } : AddInterviewProps) : JSX.Element => {
+const AddInterview = ({ setInterviews } : AddInterviewProps) : JSX.Element => {
     const [ openForm, setOpenForm ] = useState<boolean>(false);
 
     const form = useForm<{ company: string; date: Date }>({
@@ -52,8 +54,9 @@ const AddInterview = ({ addInterview } : AddInterviewProps) : JSX.Element => {
                     form.reset();
                     addInterview({
                         company: values.company,
-                        date: dateToString(values.date)
+                        date: dateToString(values.date),
                     })
+                    fetchInterviews({setInterviews: setInterviews})
                     setOpenForm(false);
                 })}>
                     <TextInput
